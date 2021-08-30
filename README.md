@@ -1,6 +1,6 @@
 # Temperature Controlled Fan using Arduino
 
-Temperature Controlled Fan using Arduino with LM535 temperature sensor
+Temperature Controlled Fan using Arduino with LM35 temperature sensor
 
 [Documentation](#)
 
