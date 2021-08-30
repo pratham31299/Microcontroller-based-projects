@@ -71,8 +71,7 @@ void loop() {
     delay(500);
 
   } else {
-
-    analogWrite(Fan, 0);
+    
     digitalWrite(led2, LOW);
     digitalWrite(led3, LOW);
     digitalWrite(led4, LOW);
