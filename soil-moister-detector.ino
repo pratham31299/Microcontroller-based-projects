@@ -28,22 +28,26 @@ void loop() {
   if (sensorValue >= 0) {
 
     digitalWrite(led2, HIGH);
+    delay(200);
 
   }
 
   if (sensorValue >= 5) {
 
     digitalWrite(led3, HIGH);
+    delay(200);
   }
 
   if (sensorValue >= 10) {
 
     digitalWrite(led4, HIGH);
+    delay(200);
   }
 
   if (sensorValue >= 15) {
 
     digitalWrite(led5, HIGH);
+    delay(200);
 
   } else {
 
