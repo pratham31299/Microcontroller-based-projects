@@ -36,7 +36,7 @@ Temperature/Humidity detector  Using Arduino DTH11 sensor module
 
 Laser based security system  Using Arduino and photoresistor
 
-[Documentation](SS SYSTEM.pdf)
+[Documentation](SS%SYSTEM.pdf)
 
 [Arduino Code ](Laser-security-system-arduino.ino)
 
