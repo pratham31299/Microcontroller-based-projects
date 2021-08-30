@@ -15,17 +15,21 @@ void loop() {
   // put your main code here, to run repeatedly:
 
   value = analogRead(LDR);
-  Serial.print("LDR input ");
+  //  Serial.print("LDR input ");
+  //  Serial.println(value);
+
+  value = map(value, 0, 1023, 100, 0); //
+
+  Serial.print(" OUTPUT  ");
   Serial.println(value);
 
-  value = constrain(value, 0, 260);
-  value = map(value, 0, 260, 255, 0); //
-  if (value >= 200) {
 
-    digitalWrite(buz, HIGH);
+  if ((value >= 10) && (value <= 40)) { // fine tuned for security purposes only trigger by calibrated laser
+
+    digitalWrite(buz, LOW);
 
   } else {
-    digitalWrite(buz, LOW);
+    digitalWrite(buz, HIGH);
   }
 
 
