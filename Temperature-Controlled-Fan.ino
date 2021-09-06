@@ -2,21 +2,41 @@
 
 */
 
-float temp ; // varible for sensor
+int  temp ; // varible for sensor
 
 int Fan = 9; // fan attached to pin 9 [PWM]
 
 int val ; // to store the rpm data for fan
 
+int rpm = 0 ;
+
 int led2 = 2;
 int led3 = 3;
 int led4 = 4;
 
+//Library version:1.1
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0x27, 16, 2); // set the LCD address to 0x27 for a 16 chars and 2 line display
+
+
 
 void setup() {
-  // put your setup code here, to run once:
+
 
   Serial.begin(9600);
+
+  lcd.init();                      // initialize the lcd
+  lcd.init();
+
+  // Print a message to the LCD.
+
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print("Temperature");
+  lcd.setCursor(0, 1);
+  lcd.print("Controlled-Fan");
 
   //Defining Led pins as output
 
@@ -53,6 +73,22 @@ void loop() {
 
 
 
+  rpm = val * 9.25; // constant for rpm
+  lcd.clear();
+
+  lcd.setCursor(0, 0);
+  lcd.print("Temperature ");
+  lcd.setCursor(12, 0);
+  lcd.print(temp);
+  lcd.setCursor(14, 0);
+  lcd.print("*C");
+  lcd.setCursor(0, 1);
+  lcd.print("RPM :");
+  lcd.setCursor(6, 1);
+  lcd.print(rpm);
+
+
+
   if (temp > 25) {
 
     digitalWrite(led2, HIGH);
@@ -71,7 +107,7 @@ void loop() {
     delay(500);
 
   } else {
-    
+
     digitalWrite(led2, LOW);
     digitalWrite(led3, LOW);
     digitalWrite(led4, LOW);
