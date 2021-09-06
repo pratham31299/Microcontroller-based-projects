@@ -1,3 +1,12 @@
+# Footstep Power Generation System
+
+Footstep power generator system, that uses piezo sensors to generate power from human footsteps
+
+[Documentation](doc-footstep.pdf)
+
+[Arduino Code ](Footstep-Power-Generation-System.ino)
+
+
 # Temperature Controlled Fan using Arduino
 
 Temperature Controlled Fan using Arduino with LM35 temperature sensor
