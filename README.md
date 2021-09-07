@@ -1,10 +1,10 @@
-# Footstep Power Generation System
+# Smart Home Using Arduino HC05BT module
 
-Footstep power generator system, that uses piezo sensors to generate power from human footsteps
+ Smart Home Using Arduino  & HC05 BT module with Blynk app for  Automation
 
-[Documentation](doc-footstep.pdf)
+[Documentation](Doc-Smart-Home-Using-Arduino_HC05BT-module.pdf)
 
-[Arduino Code ](Footstep-Power-Generation-System.ino)
+[Arduino Code ](Smart-Home-Using-Arduino_HC05BT-module.ino)
 
 
 # Temperature Controlled Fan using Arduino
