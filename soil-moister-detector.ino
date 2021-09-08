@@ -44,7 +44,7 @@ void loop() {
     delay(200);
   }
 
-  if (sensorValue >= 15) {
+  if (sensorValue >= 14) {
 
     digitalWrite(led5, HIGH);
     delay(200);
@@ -54,6 +54,7 @@ void loop() {
     digitalWrite(led2, LOW);
     digitalWrite(led3, LOW);
     digitalWrite(led4, LOW);
+    digitalWrite(led5, LOW);
 
   }
 
