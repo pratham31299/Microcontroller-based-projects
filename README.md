@@ -45,7 +45,7 @@ Smoke Detector Using Arduino with MQ-2 sensor
 
 # Soil moisture detector
 
-Electrode based Soil moisture detector Using Arduino 
+Soil Hygrometer Sensor based Soil moisture detector Using Arduino 
 
 [Documentation](Soil-Moisture-Detection-Device-Using-Arduino.pdf)
 
