@@ -7,6 +7,13 @@
 [Arduino Code ](Smart-Home-Using-Arduino_HC05BT-module.ino)
 
 
+# Footstep Power Generation System
+
+Footstep power generator system, that uses piezo sensors to generate power from human footsteps
+
+[Documentation](doc-footstep.pdf)
+
+[Arduino Code ](Footstep-Power-Generation-System.ino)
 
 
 
