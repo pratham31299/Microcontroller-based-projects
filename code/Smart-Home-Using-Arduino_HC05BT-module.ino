@@ -16,7 +16,7 @@ SoftwareSerial DebugSerial(0, 1); // RX, TX
 
 #include <BlynkSimpleSerialBLE.h>
 
-char auth[] = "5gxYVBZ6JAkF2x1MwtfqdmEcqfBj0gTV";
+char auth[] = "5gxYVBZ6JAkF2x1MwtfqdmBj0gTV"; // authentication code,put your own
 
 void setup()
 {
