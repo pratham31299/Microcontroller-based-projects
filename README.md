@@ -2,7 +2,7 @@
 
  Smart Home Using Arduino  & HC05 BT module with Blynk app for  Automation
 
-[Documentation](doc/Doc-Smart-Home-Using-Arduino_HC05BT-module.pdf)
+[Documentation](docs/Doc-Smart-Home-Using-Arduino_HC05BT-module.pdf)
 
 [Arduino Code ](code/Smart-Home-Using-Arduino_HC05BT-module.ino)
 
@@ -11,7 +11,7 @@
 
 Footstep power generator system, that uses piezo sensors to generate power from human footsteps
 
-[Documentation](doc/doc-footstep.pdf)
+[Documentation](docs/doc-footstep.pdf)
 
 [Arduino Code ](code/Footstep-Power-Generation-System.ino)
 
@@ -31,7 +31,7 @@ Temperature Controlled Fan using Arduino with LM35 temperature sensor
 
 Smart Irrigation System using Arduino with Soil moister sensor
 
-[Documentation](doc/Smart-Irrigation-System-Using-Arduino.pdf)
+[Documentation](docs/Smart-Irrigation-System-Using-Arduino.pdf)
 
 [Arduino Code ](code/Irrigation-system-arduino.ino)
 
@@ -40,7 +40,7 @@ Smart Irrigation System using Arduino with Soil moister sensor
 
 Laser based security system  Using Arduino and photoresistor
 
-[Documentation](doc/SS%20SYSTEM.pdf)
+[Documentation](docs/SS%20SYSTEM.pdf)
 
 [Arduino Code ](code/Laser-security-system-arduino.ino)
 
@@ -49,7 +49,7 @@ Laser based security system  Using Arduino and photoresistor
 
 Smoke Detector Using Arduino with MQ-2 sensor
 
-[Documentation](doc/Documentation%20Smoke%20Detector.pdf)
+[Documentation](docs/Documentation%20Smoke%20Detector.pdf)
 
 [Arduino Code ](code/smoke_detector_code.ino)
 
@@ -58,7 +58,7 @@ Smoke Detector Using Arduino with MQ-2 sensor
 
 Soil Hygrometer Sensor based Soil moisture detector Using Arduino 
 
-[Documentation](doc/Soil-Moisture-Detection-Device-Using-Arduino.pdf)
+[Documentation](docs/Soil-Moisture-Detection-Device-Using-Arduino.pdf)
 
 [Arduino Code ](code/soil-moister-detector.ino)
 
@@ -67,7 +67,7 @@ Soil Hygrometer Sensor based Soil moisture detector Using Arduino
 
 LDR Based light intensity controller Using Arduino with photoresistor
 
-[Documentation](doc/Automatic%20Lights%20Using%20LDR%20(Brightness%20Control).pdf)
+[Documentation](docs/Automatic%20Lights%20Using%20LDR%20(Brightness%20Control).pdf)
 
 [Arduino Code ](code/Automatic-Lights-Using-LDR__Brightness-Control_.ino)
 
@@ -75,7 +75,7 @@ LDR Based light intensity controller Using Arduino with photoresistor
 
 Temperature/Humidity detector  Using Arduino DTH11 sensor module
 
-[Documentation](doc/DHT11%20Humidity-Temp%20Sensor%20Doc.pdf)
+[Documentation](docs/DHT11%20Humidity-Temp%20Sensor%20Doc.pdf)
 
 [Arduino Code ](code/temp-humidity-DTH11.ino)
 
