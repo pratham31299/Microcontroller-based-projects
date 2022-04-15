@@ -19,15 +19,19 @@ int count = 0; // to count footstep
 
 void setup()
 {
+
+  Serial.begin(9600);
+  Serial.println(" FootStep Power Generation system begain !");
+
   lcd.init();                      // initialize the lcd
   lcd.init();
-  // Print a message to the LCD.
   lcd.backlight();
-  pinMode(vanalog, INPUT);
+
+  // Print a message to the LCD.
   lcd.setCursor(1, 0);
   lcd.print("FootStep Power");
-  lcd.setCursor(0, 1);
-  lcd.print("GenerationSystem");
+  lcd.setCursor(4, 1);
+  lcd.print("Generator");
   delay(5000);
   lcd.clear();
 
@@ -38,29 +42,39 @@ void setup()
 void loop()
 {
 
+  
   // Calculation
 
   value = analogRead(vanalog); // analog read to get data form Input [ 0 v = 0 , 5 v = 1023]
 
   vout = (value * 5.0 ) / 1024.0 ; // Converting it into voltage Respectively
-
-  vin = (vout / (R2 / R1 + R2) ); //voltage divider formula
+  vin = vout / (R2/( R1 + R2)); //voltage divider formula
 
   //Print data on LCD
 
+  lcd.setCursor(0, 0);
+  lcd.print("FootSteps : ");
+  lcd.setCursor(11, 0);
+  lcd.print(count);
   lcd.setCursor(0, 1);
-  lcd.print("Voltage ");
+  lcd.print("Voltage : ");
   lcd.setCursor(9, 1);
-  lcd.print(vin);
+  lcd.print( vin);
+
 
   if ( vin > 0.5) { // minimum  voltage which can be detected
-
+    
     count++; // for footstep incriment by 1
-    lcd.setCursor(0, 0);
-    lcd.print("FootStep ");
-    lcd.setCursor(9, 0);
-    lcd.print(count);
     delay(1000);
   }
+
+  // debugging values
+  Serial.print(" Analog read : ");
+  Serial.print(value);
+  Serial.print(" Voltage read : ");
+  Serial.println(vin);
+  
+
+}
 
 }
