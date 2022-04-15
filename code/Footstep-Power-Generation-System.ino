@@ -51,7 +51,7 @@ void loop()
   lcd.setCursor(0, 1);
   lcd.print("Voltage ");
   lcd.setCursor(9, 1);
-  lcd.print( value);
+  lcd.print(vin);
 
   if ( vin > 0.5) { // minimum  voltage which can be detected
 
