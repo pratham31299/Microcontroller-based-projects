@@ -2,81 +2,59 @@
 
  Smart Home Using Arduino  & HC05 BT module with Blynk app for  Automation
 
-[Documentation](doc/Doc-Smart-Home-Using-Arduino_HC05BT-module.pdf)
-
-[Arduino Code ](code/Smart-Home-Using-Arduino_HC05BT-module.ino)
-
+[View project](Readmes/p2.md)
 
 # Footstep Power Generation System
 
 Footstep power generator system, that uses piezo sensors to generate power from human footsteps
 
-[Documentation](doc/doc-footstep.pdf)
-
-[Arduino Code ](code/Footstep-Power-Generation-System.ino)
-
-
+[View project](Readmes/p1.md)
 
 
 # Temperature Controlled Fan using Arduino
 
 Temperature Controlled Fan using Arduino with LM35 temperature sensor
 
-[Documentation](#)
-
-[Arduino Code ](code/Temperature-Controlled-Fan.ino)
+[View project](Readmes/p3.md)
 
 
 # Smart Irrigation System based on arduino 
 
 Smart Irrigation System using Arduino with Soil moister sensor
 
-[Documentation](doc/Smart-Irrigation-System-Using-Arduino.pdf)
-
-[Arduino Code ](code/Irrigation-system-arduino.ino)
+[View project](Readmes/p4.md)
 
 
 # Development of laser based security system 
 
 Laser based security system  Using Arduino and photoresistor
 
-[Documentation](doc/SS%20SYSTEM.pdf)
-
-[Arduino Code ](code/Laser-security-system-arduino.ino)
+[View project](Readmes/p5.md)
 
 
 # Smoke/Gas detector 
 
 Smoke Detector Using Arduino with MQ-2 sensor
 
-[Documentation](doc/Documentation%20Smoke%20Detector.pdf)
-
-[Arduino Code ](code/smoke_detector_code.ino)
-
+[View project](Readmes/p6.md)
 
 # Soil moisture detector
 
 Soil Hygrometer Sensor based Soil moisture detector Using Arduino 
 
-[Documentation](doc/Soil-Moisture-Detection-Device-Using-Arduino.pdf)
-
-[Arduino Code ](code/soil-moister-detector.ino)
+[View project](Readmes/p7.md)
 
 
 # LDR Based light intensity controller
 
 LDR Based light intensity controller Using Arduino with photoresistor
 
-[Documentation](doc/Automatic%20Lights%20Using%20LDR%20(Brightness%20Control).pdf)
-
-[Arduino Code ](code/Automatic-Lights-Using-LDR__Brightness-Control_.ino)
+[View project](Readmes/p8.md)
 
 # Temperature/Humidity detector 
 
 Temperature/Humidity detector  Using Arduino DTH11 sensor module
 
-[Documentation](doc/DHT11%20Humidity-Temp%20Sensor%20Doc.pdf)
-
-[Arduino Code ](code/temp-humidity-DTH11.ino)
+[View project](Readmes/p9.md)
 
 #
