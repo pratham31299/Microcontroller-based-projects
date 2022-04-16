@@ -50,22 +50,9 @@ void loop()
   vout = (value * 5.0 ) / 1024.0 ; // Converting it into voltage Respectively
   vin = vout / (R2/( R1 + R2)); //voltage divider formula
 
-  //Print data on LCD
-
-  lcd.setCursor(0, 0);
-  lcd.print("FootSteps : ");
-  lcd.setCursor(11, 0);
-  lcd.print(count);
-  lcd.setCursor(0, 1);
-  lcd.print("Voltage : ");
-  lcd.setCursor(9, 1);
-  lcd.print( vin);
-
-
   if ( vin > 0.5) { // minimum  voltage which can be detected
     
     count++; // for footstep incriment by 1
-    delay(1000);
   }
 
   // debugging values
@@ -74,7 +61,7 @@ void loop()
   Serial.print(" Voltage read : ");
   Serial.println(vin);
   
-
+delay(200);
 }
 
 }
