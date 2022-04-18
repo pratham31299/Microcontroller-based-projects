@@ -22,7 +22,7 @@ const int step_led = 13 ; // led indicator
 
 
 
-void setup() 
+void setup() {
 
     // initialize the lcd
 
@@ -93,6 +93,8 @@ void loop() {
     Serial.println(" Battery Low !!!!!!!!!!!!!!!!!!!!!!!!!   ");
     delay(2000);
   }
+
+ // vin = vin*8 ;       // arbitrary value for piezo's voltage
 
   //Print data on LCD
   lcd.clear();
