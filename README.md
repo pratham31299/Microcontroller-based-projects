@@ -10,6 +10,11 @@ Footstep power generator system, that uses piezo sensors to generate power from 
 
 [View project](Readmes/p1.md)
 
+# Automatic Hand Sanitizer Dispenser
+
+Automatic hand sanitizer dispenser using ATmega328 & HC-SR05 ultrasonic sensor
+
+[View project](Readmes/p10.md)
 
 # Temperature Controlled Fan using Arduino
 
