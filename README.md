@@ -10,6 +10,12 @@ Footstep power generator system, that uses piezo sensors to generate power from 
 
 [View project](Readmes/p1.md)
 
+# Smart Dustbin with GSM Alert
+
+Smart Dustbin with GSM Alert using SIM800L module and ultrasonic sensors with arduino uno board
+
+[View project](Readmes/p11.md)
+
 # Automatic Hand Sanitizer Dispenser
 
 Automatic hand sanitizer dispenser using ATmega328 & HC-SR05 ultrasonic sensor
