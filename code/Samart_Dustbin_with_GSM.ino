@@ -5,7 +5,7 @@
 
 #define trigPin 4 // digital GPIO
 #define echoPin 5
-#define  trigPin1 6
+#define trigPin1 6
 #define echoPin1 9
 
 long duration;
@@ -40,7 +40,7 @@ void send_SMS() {
   delay(1000);
   SIM800_serial.println("AT+CMGF=1");          // Configuration for sending SMS
   delay(1000);
-  SIM800_serial.println("AT+CMGS=\"+917488404654\"\r");
+  SIM800_serial.println("AT+CMGS=\"+91748XXXXXXX\"\r");
   delay(500);
   SIM800_serial.print("SMS Alert ! Dustbin full");
   delay(1000);
