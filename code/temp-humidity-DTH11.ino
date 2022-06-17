@@ -10,6 +10,8 @@
 #define DHTPIN 2     // Digital pin connected to the DHT sensor
 #define DHTTYPE DHT11   // DHT 11
 
+// GPIO's
+
 #define lowT 3
 #define highT 4 // above 35 deg celcius
 #define lowH 5
