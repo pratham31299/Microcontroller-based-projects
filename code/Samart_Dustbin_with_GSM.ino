@@ -35,22 +35,30 @@ int Cal_distance(int TRIG ,  int ECHO ) {  // function to calculate distance, wi
 
 void send_SMS() {
 
-  delay(1000);
+
   SIM800_serial.println("AT"); // software serial
   delay(1000);
-  SIM800_serial.println("AT+CMGF=1");          // Configuration for sending SMS
+  SIM800_serial.println("ATD+91XXXXXXXXXX;"); // call notification, dustbin full !
   delay(1000);
-  SIM800_serial.println("AT+CMGS=\"+91748XXXXXXX\"\r");
-  delay(500);
-  SIM800_serial.print("SMS Alert ! Dustbin full");
-  delay(1000);
-  SIM800_serial.write(26);
-  delay(1000);
+
+  
+ // SIM800_serial.println("AT+CMGF=1");          // Configuration for sending SMS
+ // delay(1000);
+ // SIM800_serial.println("AT+CMGS=\"+91748XXXXXXX\"\r");
+ // delay(500);
+//  SIM800_serial.print("SMS Alert ! Dustbin full");
+ // delay(1000);
+ // SIM800_serial.write(26);
+  //delay(1000);
 
   // print message
   lcd.clear();
   lcd.setCursor(3, 0);
-  lcd.println("SMS sent       ");
+  lcd.print("SMS sent       ");
+  lcd.setCursor(3, 1);
+  lcd.println("Calling...");
+
+
   Serial.println("SMS sent");
   delay(3000);
 
