@@ -10,11 +10,10 @@
 #define DHTPIN 2     // Digital pin connected to the DHT sensor
 #define DHTTYPE DHT11   // DHT 11
 
-int lowT = 3;
-int highT = 4; // above 35 deg celcius
-
-int lowH = 5;
-int highH = 6; // above 80 %
+#define lowT 3
+#define highT 4 // above 35 deg celcius
+#define lowH 5
+#define highH 6 // above 80 %
 
 LiquidCrystal_I2C lcd(0x27, 20, 4); // set the LCD address to 0x27 for a 16 chars and 2 line display
 
