@@ -6,7 +6,7 @@
 
 # Footstep Power Generation System
 
-Footstep power generator system, that uses piezo sensors to generate power from human footsteps
+Footstep power generation system, that uses piezo sensors to generate power from human footsteps
 
 [View project](Readmes/p1.md)
 
@@ -31,14 +31,14 @@ Temperature Controlled Fan using Arduino with LM35 temperature sensor
 
 # Smart Irrigation System based on arduino 
 
-Smart Irrigation System using Arduino with Soil moister sensor
+Smart irrigation system using Arduino and soil moister sensor
 
 [View project](Readmes/p4.md)
 
 
 # Development of laser based security system 
 
-Laser based security system  Using Arduino and photoresistor
+Laser based security system  using Arduino and photoresistor
 
 [View project](Readmes/p5.md)
 
