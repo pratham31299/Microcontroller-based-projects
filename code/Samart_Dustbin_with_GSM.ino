@@ -11,9 +11,16 @@
 long duration;
 int distance, Meas_distance,  Meas_distance1;
 
+int SMS_count = 0 ; // to count no. of sent SMS
+
+
 Servo my_servo; // servo instance
+
 SoftwareSerial SIM800_serial(3, 2 ); //Create software serial object to communicate with SIM800 (TX, RX)
+
 LiquidCrystal_I2C lcd(0x27, 16, 2); // set the LCD address to 0x27 for a 16 chars and 2 line display
+
+
 
 
 int Cal_distance(int TRIG ,  int ECHO ) {  // function to calculate distance, with arrguments
@@ -36,23 +43,25 @@ int Cal_distance(int TRIG ,  int ECHO ) {  // function to calculate distance, wi
 void send_SMS() {
 
   delay(1000);
-  SIM800_serial.println("AT"); // software serial
+  SIM800_serial.println("AT"); // software serial OK
   delay(1000);
-  SIM800_serial.println("AT+CMGF=1");          // Configuration for sending SMS
+  SIM800_serial.println("AT+CMGF=1");  // Configuration for sending SMS
   delay(1000);
-  SIM800_serial.println("AT+CMGS=\"+91748XXXXXXX\"\r");
+  SIM800_serial.println("AT+CMGS=\"+9162XXXXXXXXX\"\r"); // SMS receiving number
   delay(500);
-  SIM800_serial.print("SMS Alert ! Dustbin full");
+  SIM800_serial.print("SMS Alert ! Dustbin full"); // SMS 
   delay(1000);
   SIM800_serial.write(26);
   delay(1000);
 
-  // print message
+  Serial.println("SMS sent");
+
+  // LCD show
   lcd.clear();
   lcd.setCursor(3, 0);
   lcd.println("SMS sent       ");
-  Serial.println("SMS sent");
   delay(3000);
+  lcd.clear(); // LCD clear All
 
 }
 
@@ -96,55 +105,88 @@ void setup() {
 
 void loop() {
 
+
   Meas_distance =  Cal_distance(trigPin, echoPin); // call function
-  delay(1000);
+  delay(500);
 
   Meas_distance1 =  Cal_distance(trigPin1, echoPin1); // call function
 
 
-  // Controle Structure---------------------------------------------------------------------------------------
+
+  // Controle Structure------------------------------------------------------
 
 
-
-
-  if ( Meas_distance < 20) { // 20   cm
+  if ( Meas_distance < 20) { // 20 cm, dustbin use case
 
     Serial.println("HOLD ON");
-    my_servo.write(95); // Open dustbin lid
-    delay(5000);
 
-  } else {
+    // LCD show
+    lcd.clear();
+    lcd.setCursor(4, 0);
+    lcd.print("HOLD ON");
 
+    // Open dustbin lid
+    my_servo.write(95);
+    delay(5000);  // delay
+
+    // LCD show
+    lcd.clear();
+    lcd.setCursor(3, 0);
+    lcd.print("Thank You");
+    delay(1500);
+
+    // Dustbin closed
     my_servo.write(0);
-    Serial.print("Ultrasonic 0 : ");
-    Serial.print(Meas_distance);
 
   }
+
 
   if ( Meas_distance1 < 10) { // 10 cm, dustbin full
 
-    lcd.clear();
-    lcd.setCursor(0, 0);
-    lcd.print("Dustbin Full !! ");
-    lcd.setCursor(0, 1);
-    lcd.println("Sending SMS...   ");
-    delay(10000);
-
     Serial.println("Dustbin full !");
-    Serial.println("Sending SMS...");
-    send_SMS();
+
+    // LCD show Dustbin Full
+    lcd.clear();
+    lcd.setCursor(2, 0);
+    lcd.print("Dustbin Full !");
+
 
   } else {
 
-    Serial.print(" Ultrasonic 1 : ");
-    Serial.print(Meas_distance1);
-    Serial.println(" cm");
+    // LCD show USE ME label
     lcd.clear();
     lcd.setCursor(3, 0);
-    lcd.print("USE ME '_'");  // Always show USE ME label
+    lcd.print("USE ME '_'");
+
+
+    Serial.print("Ultrasonic 0 : ");
+    Serial.print(Meas_distance);
+
+    Serial.print(" , Ultrasonic 1 : ");
+    Serial.print(Meas_distance1);
+    Serial.println(" cm");
+
   }
 
 
+  if ( Meas_distance1 < 10 && SMS_count == 0) { // 10 cm, (dustbin full) and SMS count = 0 (no SMS sent before), send SMS
+
+
+    Serial.println("Sending SMS...");
+
+    //LCD show
+    lcd.setCursor(2, 1);
+    lcd.println("Sending SMS...");
+    delay(5000);
+    lcd.clear();
+
+    send_SMS(); // call SMS alert function
+
+    SMS_count++; // increase value of SMS count by 1
+
+  }
+
 
   delay(1000); // a bit of delay
+
 }
