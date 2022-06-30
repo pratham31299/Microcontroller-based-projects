@@ -15,6 +15,15 @@ Footstep power generation system, that uses piezo sensors to generate power from
 
 <!--5500-->
 
+# Smart Blind Stick with GPS and GSM Alert
+
+Smart Blind Stick using SIM808 module and Ultrasonic proximity sensors
+
+
+[View project](Readmes/p12.md)
+
+<!--4200 only with gps&gsm -->
+
 
 # Smart Dustbin with GSM Alert
 
