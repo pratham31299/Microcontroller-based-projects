@@ -2,36 +2,41 @@
 
 */
 
-int  temp ; // varible for sensor
-
-int Fan = 9; // fan attached to pin 9 [PWM]
-
-int val ; // to store the rpm data for fan
-
-int rpm = 0 ;
-
-int led2 = 2;
-int led3 = 3;
-int led4 = 4;
-
 //Library version:1.1
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
 LiquidCrystal_I2C lcd(0x27, 16, 2); // set the LCD address to 0x27 for a 16 chars and 2 line display
 
+// OUTPUT GPIO pins
+
+#define Fan 9 // fan attached to GPIO pin 9 (PWM)
+#define led2 2
+#define led3 3
+#define led4 4
+
+// INPUT GPIO pin
+
+#define Temp_sensorPin A0 // LM35 is connected to this PIN
+
+
+// Variables
+int  temp ; // varible for sensor
+int val ; // to store the rpm data for fan
+int rpm = 0 ;
+
 
 
 void setup() {
 
 
-  Serial.begin(9600);
+  Serial.begin(9600); // at 9600 baud rate
 
-  lcd.init();                      // initialize the lcd
+  // Initialize the lcd
+  lcd.init();
   lcd.init();
 
   // Print a message to the LCD.
-
   lcd.backlight();
   lcd.setCursor(0, 0);
   lcd.print("Temperature");
@@ -49,33 +54,37 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
 
-  temp = analogRead(A0); // Read Pin A0 for temperature
+  temp = analogRead(Temp_sensorPin ); // Read Pin A0 for temperature
+
+  // Convert that ADC Data into voltage (5.0 / 1024.0),  Convert the voltage into temperature (* 100)
   temp = temp * 0.48828122 ;// multiply temp redings by constant factor to get readings in celcius
 
 
-  // For debuging
+  val = temp ;    // reads the value of the temperature
+  val = map(val, 0, 45, 0, 255);     // scale it for use with fan (value between 0 and 255), max speed at 45*C
+
+
+  analogWrite(Fan, val);  // sets the fan speed according to the scaled value
+
+
+  rpm = val * 9.25; // constant for rpm
+
+
+
+  // for debugging
 
   Serial.print(" temperature ");
   Serial.print(temp);
   Serial.print(" *C");
 
-
-  val = temp ;          // reads the value of the temperature
-  val = map(val, 0, 45, 0, 255);     // scale it for use with fan (value between 0 and 255)
-
   Serial.print(" , FanSpeed  ");
   Serial.print(val);
   Serial.println(" PWM");
 
-  analogWrite(Fan, val);                 // sets the fan speed according to the scaled value
+  // LCD show
 
-
-
-  rpm = val * 9.25; // constant for rpm
   lcd.clear();
-
   lcd.setCursor(0, 0);
   lcd.print("Temperature ");
   lcd.setCursor(12, 0);
@@ -88,6 +97,8 @@ void loop() {
   lcd.print(rpm);
 
 
+
+  // Led control structure
 
   if (temp > 25) {
 
