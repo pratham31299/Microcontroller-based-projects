@@ -192,7 +192,7 @@ void loop() {
     Serial.println("Emergency Button pressed !");
     Serial.println("");
 
-    gps_location(); // cal function
+    gps_location(); // call function
 
 
   } else { // print distance
