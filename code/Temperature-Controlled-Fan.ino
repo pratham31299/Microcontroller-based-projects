@@ -21,7 +21,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2); // set the LCD address to 0x27 for a 16 char
 
 
 // Variables
-int  temp ; // varible for sensor
+float  temp ; // varible for sensor
 int val ; // to store the rpm data for fan
 int rpm = 0 ;
 
