@@ -94,7 +94,7 @@ void loop() {
     delay(2000);
   }
 
-  vin = vin*8 ;       // arbitrary value for piezo's voltage
+ // vin = vin*8 ;       // arbitrary value for piezo's voltage
 
   //Print data on LCD
   lcd.clear();
