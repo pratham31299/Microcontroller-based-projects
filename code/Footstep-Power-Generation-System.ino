@@ -4,31 +4,36 @@
 
 LiquidCrystal_I2C lcd(0x27, 16, 2); // set the LCD address to 0x27 for a 16 chars and 2 line display
 
-float piezo_analog = A0; // voltage divider on analog pin A0 (piezo)
-float vout = 0.0;
-float vin = 0.0;
-int value = 0;
 
+// GPIO pins
+
+float piezo_analog = A0; // voltage divider on analog pin A0 (piezo)
 float bat_analog = A1; // voltage divider on analog pin A1 (battery)
-float Bvout = 0.0;
-float Bvin = 0.0;
-int Bvalue = 0;
+const int step_led = 13 ; // led indicator for footstep
+
+//Variables
+
+float P_value = 0; // to store analog readings
+float B_value = 0;
+
+float P_voltage = 0; // to store voltage raedings
+float B_voltage = 0;
 
 float R1 = 100000.0 ; // R1 (100k)
 float R2 = 10000.0  ;// R2 (10k)
 
 int step_count = 0; // to count footstep
-const int step_led = 13 ; // led indicator
+
 
 
 
 void setup() {
 
-    // initialize the lcd
+  // initialize the lcd
 
-    lcd.init();
-    lcd.init();
-    lcd.backlight();
+  lcd.init();
+  lcd.init();
+  lcd.backlight();
 
   lcd.setCursor(1, 0);
   lcd.print("Initializing....");
@@ -61,24 +66,23 @@ void setup() {
 
 void loop() {
 
-  // Calculation of voltage for Piezo plate
+  // analog read to get data form input
 
-  value = analogRead(piezo_analog); // analog read to get data form Input ( 0 v = 0 , 5 v = 1023)
+  P_value = analogRead(piezo_analog); //Piezo plate
+  B_value = analogRead(bat_analog); // Battery pack
 
-  vout = (value * 5.0 ) / 1024.0 ; // Converting it into voltage Respectively
-  vin = vout / (R2 / ( R1 + R2)); //voltage divider formula
-    
 
-  // Calculation of voltage for Battery
+  // Calculation of voltage
 
-  Bvalue = analogRead(bat_analog); // analog read to get data form Input ( 0 v = 0 , 5 v = 1023)
+  P_voltage = P_value * (5.0 / 1023) * ((R1 + R2) / R2); // Calculation of voltage for Piezo plate
 
-  Bvout = (Bvalue * 5.0 ) / 1024.0 ; // Converting it into voltage Respectively
-  Bvin = Bvout / (R2 / ( R1 + R2)); //voltage divider formula
-    
-  
+  B_voltage = B_value * (4.0 / 1023) * ((R1 + R2) / R2); // Calculation of voltage for Battery
 
-  if ( vin > 0.50) { // minimum  voltage which can be detecteds
+
+  /* P_voltage =   P_voltage*8 ;  // arbitrary value for piezo's voltage */
+
+
+  if ( P_voltage > 0.50) { // minimum  voltage which can be detecteds
 
     step_count++; // for footstep incriment by 1
     digitalWrite(step_led, HIGH);
@@ -87,7 +91,7 @@ void loop() {
   digitalWrite(step_led, LOW); // step led always low
 
 
-  if (Bvin < 4.0 ) { // minimum battery discharge voltage Alert !!
+  if (B_voltage < 4.0 ) { // minimum battery discharge voltage Alert !!
 
     // Print a message to the LCD.
     lcd.setCursor(0, 0);
@@ -96,7 +100,8 @@ void loop() {
     delay(2000);
   }
 
- // vin = vin*8 ;       // arbitrary value for piezo's voltage
+
+
 
   //Print data on LCD
   lcd.clear();
@@ -107,23 +112,23 @@ void loop() {
   lcd.setCursor(0, 1);
   lcd.print("V:");
   lcd.setCursor(2, 1);
-  lcd.print(vin);
+  lcd.print(P_voltage);
   lcd.setCursor(8, 1);
   lcd.print("BV:");
   lcd.setCursor(12, 1);
-  lcd.print(Bvin);
+  lcd.print(B_voltage);
 
 
   // debugging values
   Serial.print("Piezo Analog read  : ");
-  Serial.print(value);
+  Serial.print(P_value);
   Serial.print(" Piezo Voltage read : ");
-  Serial.print(vin);
+  Serial.print(P_voltage);
   Serial.print(" Footsetps : ");
   Serial.print(step_count);
   Serial.print(" Battery Analog read  : ");
-  Serial.print(Bvalue);
+  Serial.print(B_value);
   Serial.print(" Battery Voltage read : ");
-  Serial.println(Bvin);
+  Serial.println(B_voltage);
   delay(200);
 }
