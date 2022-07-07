@@ -79,7 +79,7 @@ void loop() {
   B_voltage = B_value * (4.0 / 1023) * ((R1 + R2) / R2); // Calculation of voltage for Battery
 
 
-  /* P_voltage =   P_voltage*8 ;  // arbitrary value for piezo's voltage */
+ /* P_voltage =   P_voltage * 20 ; // arbitrary value for piezo's voltage */
 
 
   if ( P_voltage > 0.50) { // minimum  voltage which can be detecteds
