@@ -15,14 +15,23 @@ Footstep power generation system, that uses piezo sensors to generate power from
 
 <!--5500-->
 
+
 # Smart Blind Stick with GPS and GSM Alert
 
 Smart Blind Stick using SIM808 module and Ultrasonic proximity sensors
 
-
 [View project](Readmes/p12.md)
 
 <!--4200 only with gps&gsm -->
+
+
+# IoT and GSM based coal mine saftey monitoring and alerting system 
+
+Mine safety monitoring and alerting system with IoT and GSM, by utilizing Multiple MQ gas detection Temperature sensors
+
+[View project](Readmes/p13.md)
+
+<!--7000 only with gps&gsm -->
 
 
 # Smart Dustbin with GSM Alert
