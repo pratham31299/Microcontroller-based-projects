@@ -67,13 +67,15 @@ void loop() {
 
   vout = (value * 5.0 ) / 1024.0 ; // Converting it into voltage Respectively
   vin = vout / (R2 / ( R1 + R2)); //voltage divider formula
+    
 
   // Calculation of voltage for Battery
 
   Bvalue = analogRead(bat_analog); // analog read to get data form Input ( 0 v = 0 , 5 v = 1023)
 
-  Bvout = (Bvalue * 4.0 ) / 1024.0 ; // Converting it into voltage Respectively
+  Bvout = (Bvalue * 5.0 ) / 1024.0 ; // Converting it into voltage Respectively
   Bvin = Bvout / (R2 / ( R1 + R2)); //voltage divider formula
+    
   
 
   if ( vin > 0.50) { // minimum  voltage which can be detecteds
