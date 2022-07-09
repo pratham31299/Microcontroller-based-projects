@@ -8,22 +8,22 @@
 
 LiquidCrystal_I2C lcd(0x27, 16, 2); // set the LCD address to 0x27 for a 16 chars and 2 line display
 
-// OUTPUT GPIO pins
+// GPIO pins
 
 #define Fan 9 // fan attached to GPIO pin 9 (PWM)
-#define led2 2
-#define led3 3
-#define led4 4
-
-// INPUT GPIO pin
-
-#define Temp_sensorPin A0 // LM35 is connected to this PIN
+/*
+  #define led2 2 // led pins
+  #define led3 3
+  #define led4 4
+*/
+#define tempPin A3 // LM35 is connected to this PIN
 
 
 // Variables
-float  temp ; // varible for sensor
-int val ; // to store the rpm data for fan
-int rpm = 0 ;
+int val = 0;
+int temp = 0; // varible for sensor
+int pwm_Value  = 0; //
+int fan_Speed = 0 ;
 
 
 
@@ -43,84 +43,97 @@ void setup() {
   lcd.setCursor(0, 1);
   lcd.print("Controlled-Fan");
 
-  //Defining Led pins as output
+  pinMode(Fan, OUTPUT);
 
-  pinMode(led2, OUTPUT);
-  pinMode(led3, OUTPUT);
-  pinMode(led4, OUTPUT);
+  /*
+    //Defining Led pins as output
 
+    pinMode(led2, OUTPUT);
+    pinMode(led3, OUTPUT);
+    pinMode(led4, OUTPUT);
+  */
 
 
 }
 
 void loop() {
 
-  temp = analogRead(Temp_sensorPin ); // Read Pin A0 for temperature
+  val = analogRead(tempPin); // Read Pin A0 for temperature
 
   // Convert that ADC Data into voltage (5.0 / 1024.0),  Convert the voltage into temperature (* 100)
-  temp = temp * 0.48828122 ;// multiply temp redings by constant factor to get readings in celcius
+  temp = val * 0.48828122 ;// multiply temp redings by constant factor to get readings in celcius
 
 
-  val = temp ;    // reads the value of the temperature
-  val = map(val, 0, 45, 0, 255);     // scale it for use with fan (value between 0 and 255), max speed at 45*C
+  pwm_Value = map(temp, 20, 40, 0, 255);     // scale it for use with fan (value between 0 and 255), max speed at 40*C
+                                             // min speed at 20*C
+  if (temp > 40 ) { // map function exception
+
+    pwm_Value = 255 ; // max speed
+  }
 
 
-  analogWrite(Fan, val);  // sets the fan speed according to the scaled value
+  analogWrite(Fan,  pwm_Value);  // sets the fan speed according to the scaled value
 
+  fan_Speed = map(pwm_Value, 0, 255, 0, 100);    // to display fan speed ( 0 - 100% )corresponding to pwm output
 
-  rpm = val * 9.25; // constant for rpm
-
-
-
-  // for debugging
-
-  Serial.print(" temperature ");
-  Serial.print(temp);
-  Serial.print(" *C");
-
-  Serial.print(" , FanSpeed  ");
-  Serial.print(val);
-  Serial.println(" PWM");
 
   // LCD show
 
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("Temperature ");
-  lcd.setCursor(12, 0);
+  lcd.print("Temp: ");
+  lcd.setCursor(6, 0);
   lcd.print(temp);
-  lcd.setCursor(14, 0);
+  lcd.setCursor(9, 0);
   lcd.print("*C");
   lcd.setCursor(0, 1);
-  lcd.print("RPM :");
-  lcd.setCursor(6, 1);
-  lcd.print(rpm);
+  lcd.print("Speed: ");
+  lcd.setCursor(7, 1);
+  lcd.print(fan_Speed);
+  lcd.setCursor(10, 1);
+  lcd.print("%");
 
+  /*
 
+    // Led control structure
 
-  // Led control structure
+    if (temp > 25) {
 
-  if (temp > 25) {
+      digitalWrite(led2, HIGH);
+      delay(500);
 
-    digitalWrite(led2, HIGH);
-    delay(500);
+    }
+    if (temp > 35) {
 
-  }
-  if (temp > 35) {
+      digitalWrite(led3, HIGH);
+      delay(500);
 
-    digitalWrite(led3, HIGH);
-    delay(500);
+    }
+    if (temp > 44) {
 
-  }
-  if (temp > 44) {
+      digitalWrite(led4, HIGH);
+      delay(500);
 
-    digitalWrite(led4, HIGH);
-    delay(500);
+    } else {
 
-  } else {
+      digitalWrite(led2, LOW);
+      digitalWrite(led3, LOW);
+      digitalWrite(led4, LOW);
+    }
 
-    digitalWrite(led2, LOW);
-    digitalWrite(led3, LOW);
-    digitalWrite(led4, LOW);
-  }
+  */
+
+  // for debugging
+  Serial.print("Temp analog read : ");
+  Serial.print(val);
+  Serial.print(" ,Temp : ");
+  Serial.print(temp);
+  Serial.print(" *C");
+  Serial.print(" , PWM : ");
+  Serial.print(pwm_Value);
+  Serial.print(" , Fan Speed ");
+  Serial.print(fan_Speed);
+  Serial.println(" %");
+
+  delay(200);
 }
