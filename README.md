@@ -22,7 +22,9 @@ Smart Blind Stick using SIM808 module and Ultrasonic proximity sensors
 
 [View project](Readmes/p12.md)
 
-<!--4200 only with gps&gsm -->
+<!--4200 only with gps&gsm, extra sensor and board -->
+
+
 
 
 # IoT and GSM based coal mine saftey monitoring and alerting system 
@@ -31,8 +33,17 @@ Mine safety monitoring and alerting system with IoT and GSM, by utilizing Multip
 
 [View project](Readmes/p13.md)
 
-<!--7000 only with gps&gsm -->
+<!--7000 -->
 
+
+
+# Automatic Railway Gate Control System
+
+Automatic railway gate control system using ATmega328 microcontroller IC and IR proximity sensors
+
+[View project](Readmes/p14.md)
+
+<!--4100-->
 
 # Smart Dustbin with GSM Alert
 
