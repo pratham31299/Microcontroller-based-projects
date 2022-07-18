@@ -69,7 +69,7 @@ Temperature Controlled Fan using Arduino with LM35 temperature sensor
 
 [View project](Readmes/p3.md)
 
-<!--1250-->
+<!--2000-->
 
 
 # Smart Irrigation System based on arduino 
