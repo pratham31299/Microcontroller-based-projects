@@ -62,6 +62,15 @@ Automatic hand sanitizer dispenser using ATmega328 & HC-SR05 ultrasonic sensor
 
 <!--1350-->
 
+# Solar Tracking System using ATmega328 Microcontroller
+
+Solar tracking system using  ATmega328 microcontroller with photoresistors
+
+[View project](Readmes/p15.md)
+
+<!--4500-->
+
+
 
 # Temperature Controlled Fan using Arduino
 
