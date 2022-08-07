@@ -44,6 +44,7 @@ void setup() {
   lcd.print("Controlled-Fan");
 
   pinMode(Fan, OUTPUT);
+  pinMode(tempPin, INPUT);
 
   /*
     //Defining Led pins as output
