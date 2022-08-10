@@ -96,7 +96,7 @@ Laser based security system  using Arduino and photoresistor
 
 [View project](Readmes/p5.md)
 
-<!--900-->
+<!--1400-->
 
 
 # Smoke/Gas detector 
